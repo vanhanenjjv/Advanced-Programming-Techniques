@@ -9,7 +9,7 @@
       "**/.hg": true,
       "**/CVS": true,
       "**/.DS_Store": true,
-      "**/.class": true
+      "**/*.class": true
     },
     "editor.insertSpaces": true,
     "editor.rulers": [120],
