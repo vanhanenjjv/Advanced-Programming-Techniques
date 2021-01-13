@@ -1,3 +1,5 @@
+package part_02;
+
 @FunctionalInterface 
 interface Students { 
     void Print(); 
