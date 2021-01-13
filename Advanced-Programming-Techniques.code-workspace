@@ -2,5 +2,14 @@
   "folders": [
     { "path": "exercises/week_01", "name": "Week 1" }
   ],
-  "settings": {}
+  "settings": {
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/.class": true
+    }
+  }
 }
