@@ -12,6 +12,7 @@ class Student {
   public:
     Student();
     Student(std::string name, std::string student_number);
+    ~Student();
 
     std::string name();
     void set_name(std::string);
