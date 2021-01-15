@@ -4,7 +4,7 @@ class Exercise {
 
     Exercise ([object]$week) {
         $this.Week  = $week                                      
-        $this.Parts = Get-ChildItem -Directory -Filter "part_*" -Path $week
+        $this.Parts = Get-ChildItem -Directory -Filter "part_*" $week
     }
 }
 
@@ -23,12 +23,13 @@ function Get-Exercise {
 function Compress-Exercise {
     param (
         [Parameter(Mandatory, ValueFromPipeline)] [Exercise] $Exercise,
-        [Parameter(Mandatory)]                    [object]   $Destination
+        [Parameter(Mandatory)]                    [object]   $Destination,
+        [Parameter()]                             [string[]] $Exclude
     )
 
     begin {
-        if (-not (Test-Path -Path $Destination)) {
-            New-Item -ItemType Directory -Path $Destination
+        if (-not (Test-Path $Destination)) {
+            New-Item -ItemType Directory $Destination
         }
     }
 
@@ -36,18 +37,20 @@ function Compress-Exercise {
         $week = Join-Path $Destination "$(Split-Path -Leaf $Exercise.Week)"
 
         if (-not (Test-Path $week)) {
-            New-Item -ItemType Directory -Path $week
+            New-Item -ItemType Directory $week
         }
 
         $Exercise.Parts 
             | Where-Object { $_ -ne $null }
             | ForEach-Object {
                 $part = Join-Path $week "$(Split-Path -Leaf $_)"
-                Compress-Archive -Update -Path $_ -Destination $part
+
+                $_  | Get-ChildItem -Exclude $Exclude
+                    | Compress-Archive -Update -Destination $part
             }
             | Out-Null
     }
 }
 
 
-Export-ModuleMember -Function * -Name *
+Export-ModuleMember -Function * -Alias *
