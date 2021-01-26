@@ -22,7 +22,7 @@ public class Student {
     public void setCredits(int credits) { this.credits = credits; }
 
     public void Print() {
-        var format = "{ \"name\": \"%s\", \"student_number\":, \"%s\", \"credits\": %d }";
+        var format = "{ \"name\": \"%s\", \"student_number\": \"%s\", \"credits\": %d }";
         
         var json = String.format(
             format, 
