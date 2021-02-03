@@ -10,3 +10,6 @@
     - [Part 2](./exercises/week_02/part_02)
     - [Part 1](./exercises/week_02/part_03)
     - [Part 2](./exercises/week_02/part_04)
+- [Week 3](./exercises/week_03)
+  - [Part 1](./exercises/week_03/part_01)
+  

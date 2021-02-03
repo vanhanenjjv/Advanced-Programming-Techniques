@@ -1,7 +1,8 @@
 {
   "folders": [
     { "path": "exercises/week_01", "name": "Week 1" },
-    { "path": "exercises/week_02", "name": "Week 2" }
+    { "path": "exercises/week_02", "name": "Week 2" },
+    { "path": "exercises/week_03", "name": "Week 3" }
   ],
   "settings": {
     "files.exclude": {
